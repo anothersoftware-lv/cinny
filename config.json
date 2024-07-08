@@ -1,33 +1,19 @@
 {
-  "defaultHomeserver": 2,
+  "defaultHomeserver": 0,
   "homeserverList": [
-    "converser.eu",
-    "envs.net",
-    "matrix.org",
-    "monero.social",
-    "mozilla.org",
-    "xmr.se"
+    "pasta.kaste.wtf"
   ],
   "allowCustomHomeservers": true,
 
   "featuredCommunities": {
     "openAsDefault": false,
     "spaces": [
-      "#cinny-space:matrix.org",
-      "#community:matrix.org",
-      "#space:envs.net",
-      "#science-space:matrix.org",
-      "#libregaming-games:tchncs.de",
-      "#mathematics-on:matrix.org"
+      "#tiktok:pasta.kaste.wtf"
     ],
     "rooms": [
-      "#cinny:matrix.org",
-      "#foundation-office:matrix.org",
-      "#thisweekinmatrix:matrix.org",
-      "#matrix-dev:matrix.org",
-      "#matrix:matrix.org"
+      "#cinny:matrix.org"
     ],
-    "servers": ["envs.net", "matrix.org", "monero.social", "mozilla.org"]
+    "servers": ["pasta.kaste.wtf"]
   },
 
   "hashRouter": {
