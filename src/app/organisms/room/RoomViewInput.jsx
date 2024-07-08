@@ -34,6 +34,7 @@ import FileIC from '../../../../public/res/ic/outlined/file.svg';
 import CrossIC from '../../../../public/res/ic/outlined/cross.svg';
 
 import commands from './commands';
+import {useTranslation} from "react-i18next";
 
 const CMD_REGEX = /(^\/|:|@)(\S*)$/;
 let isTyping = false;

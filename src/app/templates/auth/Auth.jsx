@@ -575,17 +575,13 @@ function Auth() {
         </div>
 
         <div className="auth-footer">
+          Darbojas uz
           <Text variant="b2">
-            <a href="https://cinny.in" target="_blank" rel="noreferrer">About</a>
+            <a href="https://matrix.org" target="_blank" rel="noreferrer">Matrix</a>
           </Text>
+          un
           <Text variant="b2">
-            <a href="https://github.com/ajbura/cinny/releases" target="_blank" rel="noreferrer">{`v${cons.version}`}</a>
-          </Text>
-          <Text variant="b2">
-            <a href="https://twitter.com/cinnyapp" target="_blank" rel="noreferrer">Twitter</a>
-          </Text>
-          <Text variant="b2">
-            <a href="https://matrix.org" target="_blank" rel="noreferrer">Powered by Matrix</a>
+            <a href="https://cinny.in" target="_blank" rel="noreferrer">Cinny</a>
           </Text>
         </div>
       </div>
