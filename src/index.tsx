@@ -6,6 +6,8 @@ import '@fontsource/inter/variable.css';
 import 'folds/dist/style.css';
 import { configClass, varsClass } from 'folds';
 
+import './i18n';
+
 enableMapSet();
 
 import './index.scss';

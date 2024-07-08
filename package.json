@@ -79,7 +79,9 @@
     "slate-react": "0.98.4",
     "tippy.js": "6.3.7",
     "twemoji": "14.0.2",
-    "ua-parser-js": "1.0.35"
+    "ua-parser-js": "1.0.35",
+    "i18next": "^23.11.5",
+    "react-i18next": "^14.1.2"
   },
   "devDependencies": {
     "@esbuild-plugins/node-globals-polyfill": "0.2.3",
