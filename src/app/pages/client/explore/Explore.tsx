@@ -36,6 +36,7 @@ import { getMxIdServer } from '../../../utils/matrix';
 import { AsyncStatus, useAsyncCallback } from '../../../hooks/useAsyncCallback';
 import { useNavToActivePathMapper } from '../../../hooks/useNavToActivePathMapper';
 import { PageNav, PageNavContent, PageNavHeader } from '../../../components/page';
+import ExploreConfig from '../../../../config/pages/client/explore/Explore';
 
 export function AddServer() {
   const mx = useMatrixClient();
@@ -180,22 +181,27 @@ export function Explore() {
       <PageNavContent>
         <Box direction="Column" gap="300">
           <NavCategory>
-            <NavItem variant="Background" radii="400" aria-selected={featuredSelected}>
-              <NavLink to={getExploreFeaturedPath()}>
-                <NavItemContent>
-                  <Box as="span" grow="Yes" alignItems="Center" gap="200">
-                    <Avatar size="200" radii="400">
-                      <Icon src={Icons.Bulb} size="100" filled={featuredSelected} />
-                    </Avatar>
-                    <Box as="span" grow="Yes">
-                      <Text as="span" size="Inherit" truncate>
-                        Featured
-                      </Text>
-                    </Box>
-                  </Box>
-                </NavItemContent>
-              </NavLink>
-            </NavItem>
+            {              
+              ExploreConfig.showFeaturedByClient
+                  ?
+                <NavItem variant="Background" radii="400" aria-selected={featuredSelected}>
+                  <NavLink to={getExploreFeaturedPath()}>
+                    <NavItemContent>
+                      <Box as="span" grow="Yes" alignItems="Center" gap="200">
+                        <Avatar size="200" radii="400">
+                          <Icon src={Icons.Bulb} size="100" filled={featuredSelected} />
+                        </Avatar>
+                        <Box as="span" grow="Yes">
+                          <Text as="span" size="Inherit" truncate>
+                            Featured
+                          </Text>
+                        </Box>
+                      </Box>
+                    </NavItemContent>
+                  </NavLink>
+                </NavItem>
+              : ''
+            }
             {userServer && (
               <NavItem
                 variant="Background"

@@ -57,6 +57,7 @@ import { useRoomAvatar, useRoomName, useRoomTopic } from '../../hooks/useRoomMet
 import { mDirectAtom } from '../../state/mDirectList';
 import { useClientConfig } from '../../hooks/useClientConfig';
 import { ScreenSize, useScreenSizeContext } from '../../hooks/useScreenSize';
+import RoomViewHeaderConfig from '../../../config/features/room/RoomViewHeaderConfig';
 
 type RoomMenuProps = {
   room: Room;
@@ -268,7 +269,7 @@ export function RoomViewHeader() {
           </Box>
         </Box>
         <Box shrink="No">
-          {!ecryptedRoom && (
+          {!ecryptedRoom && RoomViewHeaderConfig.showSearchTab && (
             <TooltipProvider
               position="Bottom"
               offset={4}
