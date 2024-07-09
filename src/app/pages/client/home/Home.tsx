@@ -47,6 +47,10 @@ import { PageNav, PageNavHeader, PageNavContent } from '../../../components/page
 import { useRoomsUnread } from '../../../state/hooks/unread';
 import { markAsRead } from '../../../../client/action/notifications';
 import { useClosedNavCategoriesAtom } from '../../../state/hooks/closedNavCategories';
+import '../../../../config/pages/client/home/Home';
+import SidebarNavConfig from "../../../../config/pages/client/sidebar/SidebarNav";
+import {ExploreTab} from "../sidebar";
+import HomeConfig from "../../../../config/pages/client/home/Home";
 
 type HomeMenuProps = {
   requestClose: () => void;
@@ -235,38 +239,48 @@ export function Home() {
                   </NavItemContent>
                 </NavButton>
               </NavItem>
-              <NavItem variant="Background" radii="400">
-                <NavButton onClick={() => openJoinAlias()}>
-                  <NavItemContent>
-                    <Box as="span" grow="Yes" alignItems="Center" gap="200">
-                      <Avatar size="200" radii="400">
-                        <Icon src={Icons.Link} size="100" />
-                      </Avatar>
-                      <Box as="span" grow="Yes">
-                        <Text as="span" size="Inherit" truncate>
-                          Join with Address
-                        </Text>
-                      </Box>
-                    </Box>
-                  </NavItemContent>
-                </NavButton>
-              </NavItem>
-              <NavItem variant="Background" radii="400" aria-selected={searchSelected}>
-                <NavLink to={getHomeSearchPath()}>
-                  <NavItemContent>
-                    <Box as="span" grow="Yes" alignItems="Center" gap="200">
-                      <Avatar size="200" radii="400">
-                        <Icon src={Icons.Search} size="100" filled={searchSelected} />
-                      </Avatar>
-                      <Box as="span" grow="Yes">
-                        <Text as="span" size="Inherit" truncate>
-                          Message Search
-                        </Text>
-                      </Box>
-                    </Box>
-                  </NavItemContent>
-                </NavLink>
-              </NavItem>
+              {
+                HomeConfig.showJoinWithAddressTab
+                    ?
+                    <NavItem variant="Background" radii="400">
+                      <NavButton onClick={() => openJoinAlias()}>
+                        <NavItemContent>
+                          <Box as="span" grow="Yes" alignItems="Center" gap="200">
+                            <Avatar size="200" radii="400">
+                              <Icon src={Icons.Link} size="100"/>
+                            </Avatar>
+                            <Box as="span" grow="Yes">
+                              <Text as="span" size="Inherit" truncate>
+                                Join with Address
+                              </Text>
+                            </Box>
+                          </Box>
+                        </NavItemContent>
+                      </NavButton>
+                    </NavItem>
+                    : ''
+              }
+              {
+                HomeConfig.showSearchTab
+                    ?
+                    <NavItem variant="Background" radii="400" aria-selected={searchSelected}>
+                      <NavLink to={getHomeSearchPath()}>
+                        <NavItemContent>
+                          <Box as="span" grow="Yes" alignItems="Center" gap="200">
+                            <Avatar size="200" radii="400">
+                              <Icon src={Icons.Search} size="100" filled={searchSelected} />
+                            </Avatar>
+                            <Box as="span" grow="Yes">
+                              <Text as="span" size="Inherit" truncate>
+                                Message Search
+                              </Text>
+                            </Box>
+                          </Box>
+                        </NavItemContent>
+                      </NavLink>
+                    </NavItem>
+                    : ''
+              }
             </NavCategory>
             <NavCategory>
               <NavCategoryHeader>

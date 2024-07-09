@@ -12,6 +12,8 @@ import { getLoginPath, getRegisterPath, withSearchParam } from '../../pathUtils'
 import { usePathWithOrigin } from '../../../hooks/usePathWithOrigin';
 import { LoginPathSearchParams } from '../../paths';
 import { useClientConfig } from '../../../hooks/useClientConfig';
+import {useTranslation} from 'react-i18next';
+
 
 const getLoginTokenSearchParam = () => {
   // when using hasRouter query params in existing route
@@ -42,6 +44,7 @@ export function Login() {
   const ssoRedirectUrl = usePathWithOrigin(getLoginPath(server));
   const loginTokenForHashRouter = getLoginTokenSearchParam();
   const absoluteLoginPath = usePathWithOrigin(getLoginPath(server));
+  const {t, i18n} = useTranslation();
 
   if (hashRouter?.enabled && loginTokenForHashRouter) {
     window.location.replace(
@@ -56,7 +59,7 @@ export function Login() {
   return (
     <Box direction="Column" gap="500">
       <Text size="H2" priority="400">
-        Login
+          {t("Login")}
       </Text>
       {parsedFlows.token && loginSearchParams.loginToken && (
         <TokenLogin token={loginSearchParams.loginToken} />
@@ -92,7 +95,7 @@ export function Login() {
         </>
       )}
       <Text align="Center">
-        Do not have an account? <Link to={getRegisterPath(server)}>Register</Link>
+          {t("Do not have an account?")} <Link to={getRegisterPath(server)}>{t("Register")}</Link>
       </Text>
     </Box>
   );

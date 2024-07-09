@@ -29,6 +29,7 @@ import { AutoDiscoveryInfoProvider } from '../../hooks/useAutoDiscoveryInfo';
 import { AuthFlowsLoader } from '../../components/AuthFlowsLoader';
 import { AuthFlowsProvider } from '../../hooks/useAuthFlows';
 import { AuthServerProvider } from '../../hooks/useAuthServer';
+import {useTranslation} from "react-i18next";
 
 const currentAuthPath = (pathname: string): string => {
   if (matchPath(LOGIN_PATH, pathname)) {
@@ -88,6 +89,8 @@ export function AuthLayout() {
     }, [])
   );
 
+  const {t, i18n} = useTranslation();
+
   useEffect(() => {
     if (server) discoverServer(server);
   }, [discoverServer, server]);
@@ -138,9 +141,9 @@ export function AuthLayout() {
             </Box>
           </Header>
           <Box className={css.AuthCardContent} direction="Column">
-            <Box direction="Column" gap="100">
+            <Box direction="Column" gap="100" >
               <Text as="label" size="L400" priority="300">
-                Homeserver
+                {t("Homeserver")}
               </Text>
               <ServerPicker
                 server={server}
